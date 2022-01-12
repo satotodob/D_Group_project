@@ -31,7 +31,8 @@
       </button>
     </div>
   </div>
-  
+  </form>
+  <form action="" method="POST">
     <button type="submit" class="button" name="home">
       <div class="arrow-wrapper">
       </div>
@@ -42,6 +43,15 @@
       </div>
       <p class="button-text"> メニュー画面</p>
     </button>
+    <?php
+            if(isset($_POST['home'])){
+              header("Location: ./home.php");
+        }
+            if(isset($_POST['menu'])){
+                header("Location: ./category.php");
+          }	
+      
+    ?>
     </form>
  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

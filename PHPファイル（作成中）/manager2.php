@@ -27,7 +27,7 @@
                 <th>値段</th>
             </tr>
                 <?php
-                include "db.php";
+                include "DB.php";
                 if(isset($_POST["send"])){
                     $c_id = $c_name = "";
                     if(isset($_POST["id"])){

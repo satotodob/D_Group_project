@@ -27,14 +27,15 @@
                 <th>値段</th>
             </tr>
                 <?php
-                include "DB.php";
+                include "db.php";
+                $dbconnect = new connect();
                 if(isset($_POST["send"])){
                     $c_id = $c_name = "";
                     if(isset($_POST["id"])){
                         $c_id = $_POST["id"];
                         if(isset($_POST["name"])) $name = $_POST["name"][$id];
                         
-                        $db->query('update menu_table set menu_name = "'.$name.'" where menu_id ='.$id);
+                        $dbconnect->db->query('update menu_table set menu_name = "'.$name.'" where menu_id ='.$id);
                     }
                 }           
                 if(isset($_POST["add"])){
@@ -42,7 +43,7 @@
                         if(isset($_POST["add_name"])){ 
                             $add_name = $_POST["add_name"]; 
                         if(isset($_POST["add_pay"])) $add_pay = $_POST["add_pay"];                   
-                        $db->query('insert into menu_table (menu_id, menu_name, menu_pay, menu_del, inventory) values (NULL,"'.$add_name.'", "'.$add_pay.'", "'.$add_del.'", "'.$inventory.'")');
+                        $dbconnect->db->query('insert into menu_table (menu_id, menu_name, menu_pay, menu_del, inventory) values (NULL,"'.$add_name.'", "'.$add_pay.'", "'.$add_del.'", "'.$inventory.'")');
                     }           
                         header("Location: ./manager2.php");
                 }
@@ -51,11 +52,10 @@
                     $id = "";
                     if(isset($_POST["id"])){
                         $id = $_POST["id"];                  
-                        $db->query('delete from menu_table where menu_id ='.$id);
+                        $dbconnect->db->query('delete from menu_table where menu_id ='.$id);
                     }
                 }
-    
-                $stmt = $db -> query('select * from menu_table');
+                $stmt = $dbconnect->db -> query('select * from menu_table');
 
                 while($data = $stmt->fetch(PDO::FETCH_NUM)){
                     echo "<tr>";

@@ -25,8 +25,8 @@ table{ margin-left: auto;
 
 .drink-form-container input
 {
-    width: 30px;/* imgタグとwidth,heightの大きさを揃える */
-    height: 30px;
+    width: 30vw;/* imgタグとwidth,heightの大きさを揃える */
+    height: 30vw;
     display: block;
     background-color: #F9C80E;/*background-colorをしっかりと指定しないとinputタグが小さくなってしまいます*/
     opacity: 0;/*inputタグは見えなくなるようにopacity:0;*/
@@ -43,4 +43,11 @@ table{ margin-left: auto;
 .modal
 {
     display: none;
+}
+
+#back
+{
+    position: fixed;
+    top: 500px;
+    left: 30px;
 }

@@ -18,14 +18,12 @@
                     <div class="drink-form-container">
                         <div id="drink_img">
                             <?php
-                                $num = 0;
                                 $images = glob('drinkimg\*.jpg');
                                 foreach($images as $image)
                                 {
-                                    $num = $num + 1;
                                     print ('<form method="post">');
                                     print ('<img src="'.$image.'" style="width:294px">');
-                                    print ('<input class=drink_img type="button" name="$num" data-toggle="modal" data-target="#modal1" style="height:195px">');
+                                    print ('<input class=drink_img type="button" value="'.$image.'" name="drink" data-toggle="modal" data-target="#modal1" style="width:460px; height:197px">');
                                     print ('</form>');
                                 }
                             ?>
@@ -57,9 +55,9 @@
             </table>
         </div>
 
-        <input type="button" name="back" value="戻る">
-        <input type="button" name="history" value="履歴">
-        <input type="button" name="confirm" value="確定">
+        <input type="button" id="back" name="back" value="戻る">
+        <input type="button" id="history" name="history" value="履歴">
+        <input type="button" id="confirm" name="confirm" value="確定">
 
 
 
@@ -67,19 +65,21 @@
                 <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="label1"><?php print $num; ?></h5>
+                            <h5 class="modal-title" id="label1">注文</h5>
+                            <h5 class="text-danger" id="label2" style="position:absolute; right: 400px">ご注文数を入力してください</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
+                            <?php print ('<img src="'.$image.'" style="">'); ?>
                             <a href="#" role="button" class="btn btn-secondary popover-test" title="Popover title" data-content="Popover body content is set in this attribute.">1</a>
                             <a href="#" role="button" class="btn btn-secondary popover-test" title="Popover title" data-content="Popover body content is set in this attribute.">2</a>
                             <a href="#" role="button" class="btn btn-secondary popover-test" title="Popover title" data-content="Popover body content is set in this attribute.">3</a>
                             <a href="#" role="button" class="btn btn-secondary popover-test" title="Popover title" data-content="Popover body content is set in this attribute.">4</a>
                             <a href="#" role="button" class="btn btn-secondary popover-test" title="Popover title" data-content="Popover body content is set in this attribute.">5</a>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">戻る</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal" style="position:absolute; right:1030px">戻る</button>
                                 <button type="button" class="btn btn-primary">確定</button>
                             </div>
                         </div>

@@ -1,0 +1,32 @@
+〇スクロール
+・商品、数量、金額が入るtableをdivで囲む
+・そのdivにスクロールを表示させるスタイルを記述
+　・width…今回はスクロールを表示させる場所を指定する
+　・height…高さを指定(商品が1つでも設定した高さになる)
+　　　→214pxがtableの高さを指定しなかった場合(標準)の7行くらい
+　・overflow-y…高さのスクロールについて記述
+　　　→autoにすると、指定した高さを超えた場合にスクロール表示
+　　　→scollにすると、高さに関係なくスクロールの部分が表示
+　　　　 ↑他にも色々ある
+　※overflowにすると幅と高さ、overflow-xにすると幅だけ
+
+・商品、数量、金額の項目を動かしたくない場合は、
+　項目とデータでtableをわけて、カラムの幅を同じにする必要がある
+　データのtableだけdivで囲む
+
+
+
+
+〇商品が注文されていない場合の画面の表示
+$order_sql = $dbconnect->db-> query('select * from order_table where decition_flag=1 && pay_flag =0');
+
+・↑のselect文の行が存在するかをチェックしてない場合falseを返す
+$kakutei_count = $order_sql ->fetchcolumn();
+or
+・行の結果を取得
+$kakutei_count = $order_sql ->fetch(PDO::FETCH_ASSOC);
+$kakutei_count = $order_sql ->fetch();
+
+
+・↑の結果をif文で使用する
+　商品がある場合と商品がない場合で

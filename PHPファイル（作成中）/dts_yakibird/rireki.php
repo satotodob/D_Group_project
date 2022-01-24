@@ -27,13 +27,18 @@
 <table border="1">
 
 <?php
+
+    $ini_import = parse_ini_file("terminal.ini", true);
+    $table_no = $ini_import["number"];
+        
+
         print('<tr><th>商品</th><th>数量</th><th>金額</th></tr>');
         print('<tr>');
     // 変数を0で定義    
         $order_all = 0;
         $money_all = 0;
     // 確定フラグがtrueで会計フラグがfalseの場合
-     $order_sql = $dbconnect->db-> query('select * from order_table where decition_flag=1 && pay_flag =0');
+     $order_sql = $dbconnect->db-> query('select * from order_table where decition_flag=1 && pay_flag =0 && terminal_id = $table_no');
      while($result = $order_sql->fetch()){
         //レコードで取り出した中からカラムを指定して取り出せる
         // print("オーダーidは「".$result['order_id']."」");

@@ -12,9 +12,11 @@
     <div class="form">
       <h2>管理者ログイン</h2>
       <div class="form-field">
-        <label for="login-password"><i class="fa fa-lock"></i></label>
+          <label><i class="fa fa-user"></i></label>
+          <input id="login-mail" type="text" name="username" placeholder="UserName"  required>        </div>
+      <div class="form-field">
+        <label><i class="fa fa-lock"></i></label>
         <input id="login-password" type="password" name="password" placeholder="Password"  required>
-        
       </div>
       <div style="color:red; 
                   text-align: center;
@@ -23,7 +25,7 @@
           echo 'incorrect username and password';
         } ?>
       </div>
-      <button type="submit" class="button">
+      <button type="submit" class="button" name="login">
         <div class="arrow-wrapper">
           <span class="arrow"></span>
         </div>

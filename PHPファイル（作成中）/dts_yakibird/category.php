@@ -79,7 +79,7 @@ if(isset($_POST['drink'])){
 }
 // 管理者ページ
 if(isset($_POST['manager'])){
-    header("Location:manager.html");
+    header("Location:manager_login.php");
 }
 
 

@@ -128,7 +128,7 @@
                                 
                                 <div class="qty-radio">
                                 注文数量：
-                                <input id="qty<?php $num= ($num + 1); print($num);?>" type="radio" name="item_qty[]" value=1>
+                                <input id="qty<?php $num= ($num + 1); print($num);?>" type="radio" nam[e="item_qty[]" value=1>
                                 <label for="qty<?php print($num);?>">1</label>
                                 
                                 <input id="qty<?php $num= ($num + 1); print($num);?>" type="radio" name="item_qty[]" value=2>

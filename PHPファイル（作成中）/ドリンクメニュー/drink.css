@@ -14,7 +14,7 @@ table{ margin-left: auto;
     margin: 0 auto;
 }
 
-.drink-form-container form
+.drink-form-container span
 {
     width: 30vw;
     float: left;
@@ -23,19 +23,19 @@ table{ margin-left: auto;
     box-sizing: border-box;
 }
 
-.drink-form-container input
+.drink-form-container button
 {
     width: 30vw;/* imgタグとwidth,heightの大きさを揃える */
     height: 30vw;
     display: block;
     background-color: #F9C80E;/*background-colorをしっかりと指定しないとinputタグが小さくなってしまいます*/
-    opacity: 0;/*inputタグは見えなくなるようにopacity:0;*/
+    opacity: 0;/* buttonタグは見えなくなるようにopacity:0;*/
     position: absolute;
     top:0;
     z-index: 2;/*透明なボタンが画像より手前に来るようにz-indexを指定*/
 }
 
-.drink-form-container input
+.drink-form-container button
 {
     cursor: pointer;
 }
@@ -43,11 +43,4 @@ table{ margin-left: auto;
 .modal
 {
     display: none;
-}
-
-#back
-{
-    position: fixed;
-    top: 500px;
-    left: 30px;
 }

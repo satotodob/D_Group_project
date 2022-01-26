@@ -35,17 +35,6 @@
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);   
     $stmt = $db -> query('select * from menu_table');
 
-    if(isset($_POST["send"])){
-        $id =$pay = $name = $category = "";
-        if(isset($_POST["name"])){
-            $name = $_POST["name"];
-            if(isset($_POST["id"])) $pay = $_POST["id"];
-            if(isset($_POST["pay"])) $pay = $_POST["pay"];
-            if(isset($_POST["category"])) $category = $_POST["category"];
-            $db->query('update menu_table set menu_name = "'.$name.'",menu_pay="'.$pay.'"",category="'.$category.'"" where menu_id ='.$id);
-        }
-    }
-
     if(isset($_POST["add"])){
         $add_pay = $add_name = $category = "";
             if(isset($_POST["add_name"])){ 
@@ -72,11 +61,9 @@
         echo "<td><input type ='text' value='$data[5]'</td>";
         echo "</tr>";
     }
-
     ?>
 
     </table>
-    <input type="submit" value="更新" name ="send"><br>
     商品登録：
     <input type="text" placeholder="商品名" name='add_name'>
     <input type="number" placeholder="価格" name='add_pay'>

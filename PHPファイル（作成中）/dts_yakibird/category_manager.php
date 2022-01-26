@@ -87,9 +87,9 @@ if(isset($_POST['manager'])){
 </header>
 
 <div class="category">
-  <a href=".php">ユーザー情報管理<br>-User-</a>
-  <a href=".php">在庫補充管理<br>-Inventory-</a>
-  <a href=".php">メニュー情報管理<br>-MenuManage-</a>
+  <a href="users_manage.php">ユーザー情報管理<br>-User-</a>
+  <a href="inventory.php">在庫補充管理<br>-Inventory-</a>
+  <a href="menu_manage.php">メニュー情報管理<br>-MenuManage-</a>
 </div>
 
 

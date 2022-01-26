@@ -73,37 +73,31 @@
 <form action="" method="post">
 
 <?php
-
-// 履歴ページ
-if(isset($_POST['history'])){
-    header("Location:rireki.php");
-}
 // お会計ページ
 if(isset($_POST['drink'])){
     header("Location:drink.php");
 }
 // 管理者ページ
 if(isset($_POST['manager'])){
-    header("Location:manager.php");
+    header("Location:manager_login.php");
 }
 
 
 ?>
 
 <header>
-    <input type="button" name="manager" value="管理者">
+    <input type="submit" name="manager" value="管理者">
 </header>
 
 <div class="category">
-  <a href="yakibird/main.php">串もの<br>SPIT-ROASTING FOOD</a>
-  <a href="yakibird/drink.php">飲み物<br>DRINK</a>
-  <a href="yakibird/side.php">サイドメニュー<br>SIDE-MENU</a>
+  <a href="main.php">串もの<br>SPIT-ROASTING FOOD</a>
+  <a href="drink.php">飲み物<br>DRINK</a>
+  <a href="side.php">サイドメニュー<br>SIDE-MENU</a>
 </div>
 
 <footer>
 <div class="">
     <input type="submit" name="history" value="履歴">
-    <input type="button" name="pay" value="お会計">
 </div>
 </footer>
 

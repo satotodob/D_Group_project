@@ -7,16 +7,19 @@
 <body>
 
 <?php
-    require_once "DB.php";
-
+    session_start();
+    require_once "db_connect.php";
     $dbconnect = new connect();
+    
+    if(!isset($_SESSION['user_name'])){//user_nameが届かない場合(非ログイン時)
+        //index.phpに飛ばします
+         echo "<script>window.location.href = 'index.php';</script>";
+        exit;      
+    }
 ?>
 
-<form action="" method="post">
-
-
 <header>
-    <input type="button" name="manager" value="管理者">
+    <input type="button" name="manager" value="管理者" onclick="location.href='manager_login.php'">
 </header>
 
 <h1>注文履歴</h1>
@@ -24,13 +27,18 @@
 <table border="1">
 
 <?php
+
+    $ini_import = parse_ini_file("terminal.ini", true);
+    $table_no = $ini_import["number"];
+        
+
         print('<tr><th>商品</th><th>数量</th><th>金額</th></tr>');
         print('<tr>');
     // 変数を0で定義    
         $order_all = 0;
         $money_all = 0;
     // 確定フラグがtrueで会計フラグがfalseの場合
-     $order_sql = $dbconnect->db-> query('select * from order_table where decition_flag=1 && pay_flag =0');
+     $order_sql = $dbconnect->db-> query('select * from order_table where decition_flag=1 && pay_flag =0 && terminal_id = '.$table_no);
      while($result = $order_sql->fetch()){
         //レコードで取り出した中からカラムを指定して取り出せる
         // print("オーダーidは「".$result['order_id']."」");
@@ -80,13 +88,17 @@
 <footer>
 <div class="fotter_menu">
   <a href="category.php">メニューに戻る</a>
-  <a href="pay.php">お会計に進む</a>
+  
+  <?php 
+   if($money_all != 0){ //会計が0円の時は以下の表示をさせない
+        //セッションpay_totalに合計金額を保持
+       $_SESSION['pay_total'] = $money_all;
+
+       print('<input type="button" name="goto_pay" onclick="location.href=\'pay.php\'" value="お会計に進む">');
+   }
+   ?>
 </div>
 </footer>
-
-
-
-</form>
     
 </body>
 </html>

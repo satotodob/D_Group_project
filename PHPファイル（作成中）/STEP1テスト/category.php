@@ -73,15 +73,26 @@
 <form action="" method="post">
 
 <?php
+session_start();
+require_once "db_connect.php";
+$dbconnect = new connect();
+
+unset($_SESSION['manager']);//管理者認証をはずす
+
+if(!isset($_SESSION['user_name'])){//user_nameが届かない場合(非ログイン時)
+    //index.phpに飛ばします
+     echo "<script>window.location.href = 'index.php';</script>";
+    exit;
+}
+
 // お会計ページ
-if(isset($_POST['drink'])){
-    header("Location:drink.php");
+if(isset($_POST['history'])){
+    header("Location:rireki.php");
 }
 // 管理者ページ
 if(isset($_POST['manager'])){
     header("Location:manager_login.php");
 }
-
 
 ?>
 

@@ -35,6 +35,23 @@
         }
 
 </style>
+
+<?php
+    session_start();
+    require_once "db_connect.php";
+    $dbconnect = new connect();
+    
+    if(!isset($_SESSION['user_name']) && !isset($_SESSION['manager'])){//非ログイン時,非管理者の時
+        //index.phpに飛ばします
+         echo "<script>window.location.href = 'index.php';</script>";
+        exit;      
+    }elseif(isset($_SESSION['user_name']) && !isset($_SESSION['manager'])){//ログインしているが,非管理者の時
+        //category.phpに飛ばします
+        echo "<script>window.location.href = 'category.php';</script>";
+        exit;  
+    }
+?>
+
 <body>
     <form action="" method="post">
         <div class="login">
@@ -63,6 +80,6 @@
         header("Location: ./category.php");
   }
       if(isset($_POST['quanli'])){
-          header("Location: ./manager_login.php");
+          header("Location: ./kanri.php");
     }																																																			                                                                                                                                                                                                                                                                                                                                                        
 ?>

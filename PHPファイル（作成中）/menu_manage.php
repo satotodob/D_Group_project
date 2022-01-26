@@ -31,7 +31,7 @@
             header("Location: ./kanri.php");
         }
 
-    $db = new PDO('mysql:host=localhost;dbname=yakibird;charset=utf8','root','');
+    $db = new PDO('mysql:host=localhost;dbname=yakibird;charset=utf8','root','admin');
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);   
     $stmt = $db -> query('select * from menu_table');
 

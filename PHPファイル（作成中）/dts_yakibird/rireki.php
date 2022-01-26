@@ -99,6 +99,20 @@
    ?>
 </div>
 </footer>
+
+<?php 
+   if($money_all != 0){ //会計が0円の時は以下の表示をさせない
+        //セッションpay_totalに合計金額を保持
+       $_SESSION['pay_total'] = $money_all;
+
+       print('<input type="button" name="goto_pay" onclick="location.href=\'pay.php\'" value="お会計に進む">');
+   };
+
+   if($money_all == 0){
+       print ('商品が注文されていません');
+       print('<input type="button" onclick="location.href=\'category.php\'" value="カテゴリー画面へ">');
+    }
+   ?>
     
 </body>
 </html>

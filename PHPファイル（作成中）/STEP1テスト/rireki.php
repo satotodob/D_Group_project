@@ -75,7 +75,7 @@ print "<table border='1'>";
         $order_all = 0;
         $money_all = 0;
     // 確定フラグがtrueで会計フラグがfalseの場合
-    $order_sql = $dbconnect->db-> query('select * from order_table where decition_flag=1 && pay_flag =0');
+    $order_sql = $dbconnect->db-> query('select * from order_table where decition_flag=1 && pay_flag =0 && terminal_id ='. $table_no);
      while($result = $order_sql->fetch()){
         //レコードで取り出した中からカラムを指定して取り出せる
         // print("オーダーidは「".$result['order_id']."」");

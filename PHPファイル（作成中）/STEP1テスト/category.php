@@ -109,6 +109,7 @@ if(isset($_POST['manager'])){
 <footer>
 <div class="">
     <input type="submit" name="history" value="履歴">
+
     <?php
     $ini_import = parse_ini_file("terminal.ini", true);
     $table_no = $ini_import["number"];//注文卓番号
@@ -116,7 +117,7 @@ if(isset($_POST['manager'])){
     $order_sql = $dbconnect->db-> query('select * from order_table where decition_flag=1 && pay_flag=0 && terminal_id ='. $table_no);
     $kakutei_count = $order_sql ->fetch();
     if($kakutei_count != 0){
-        print('<input type="button" name="goto_pay" onclick="location.href=\'pay.php\'" value="お会計に進む">');
+        print('<input type="submit" name="goto_pay" onclick="location.href=\'pay.php\'" value="お会計に進む">');
     }?>
 </div>
 </footer>

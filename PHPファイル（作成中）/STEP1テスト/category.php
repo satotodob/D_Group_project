@@ -111,13 +111,12 @@ if(isset($_POST['manager'])){
     <input type="submit" name="history" value="履歴">
 
     <?php
-    $ini_import = parse_ini_file("terminal.ini", true);
-    $table_no = $ini_import["number"];//注文卓番号
-
-    $order_sql = $dbconnect->db-> query('select * from order_table where decition_flag=1 && pay_flag=0 && terminal_id ='. $table_no);
+    $order_sql = $dbconnect->db-> query('select * from order_table where decition_flag=1 && pay_flag =0');
     $kakutei_count = $order_sql ->fetch();
+    
+    //確定の商品があるかどうかで判断
     if($kakutei_count != 0){
-        print('<input type="submit" name="goto_pay" onclick="location.href=\'pay.php\'" value="お会計に進む">');
+        print('<input type="button" name="goto_pay" onclick="location.href=\'pay.php\'" value="お会計に進む">');
     }?>
 </div>
 </footer>

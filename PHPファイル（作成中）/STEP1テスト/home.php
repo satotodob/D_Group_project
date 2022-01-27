@@ -34,6 +34,11 @@
             background-color:#bebebe
         }
 
+        .users{
+            margin:10px 0px;
+            font-size:15pt;
+        }
+
 </style>
 
 <?php
@@ -57,6 +62,13 @@
         <div class="login">
             <div class="form">
             <h2>ホーム</h2>
+
+            <div class="users">
+            <?php 
+                echo '「'.$_SESSION['user_name'].'」でログイン中';
+            ?>
+            </div>
+
             <div class="form-field">
                 <button type="submit" class="button" name="khach">
                     <div class="arrow">

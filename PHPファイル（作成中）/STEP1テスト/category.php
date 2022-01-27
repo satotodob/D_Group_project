@@ -113,7 +113,7 @@ if(isset($_POST['manager'])){
     $ini_import = parse_ini_file("terminal.ini", true);
     $table_no = $ini_import["number"];//注文卓番号
 
-    $order_sql = $dbconnect->db-> query('select * from order_table where decition_flag=1 && terminal_id ='. $table_no);
+    $order_sql = $dbconnect->db-> query('select * from order_table where decition_flag=1 && pay_flag=0 && terminal_id ='. $table_no);
     $kakutei_count = $order_sql ->fetch();
     if($kakutei_count != 0){
         print('<input type="button" name="goto_pay" onclick="location.href=\'pay.php\'" value="お会計に進む">');

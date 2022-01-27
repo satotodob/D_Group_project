@@ -3,6 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>履歴画面</title>
+    <style>
+        /*項目を動かさないためにtableをわけたのでカラムの幅を固定にして項目とデータの幅をあわせる
+        　項目を動かしたい場合は、tebleを一つにする
+        　スクロールはtableをdivで囲む
+        */
+        .over{
+                width: auto;  /* スクロールの出る場所を決める */
+                height: 340px;  /*表の高さを弄らなかった場合の7行分くらい*/
+                /*scollだと常に表示*/
+                overflow-y: scroll;
+        }
+        th,td {
+            border: solid 1px;          /* 枠線指定 */
+            font-size: 25px;
+            height: 50px;
+            width: 310px;
+        }
+        table{
+            margin: auto;
+        }
+        .sum_table{
+        margin:auto;
+
+        }
+    </style>
 </head>
 <body>
 
@@ -23,22 +48,29 @@
 </header>
 
 <h1>注文履歴</h1>
-
-<table border="1">
-
 <?php
+$order_sql = $dbconnect->db-> query('select * from order_table where decition_flag=1 && pay_flag =0');
+// $kakutei_count = $order_sql ->fetchcolumn();
+// $kakutei_count = $order_sql ->fetch(PDO::FETCH_ASSOC);
+$kakutei_count = $order_sql ->fetch();
 
-    $ini_import = parse_ini_file("terminal.ini", true);
-    $table_no = $ini_import["number"];
-        
 
-        print('<tr><th>商品</th><th>数量</th><th>金額</th></tr>');
+//確定の商品があるかどうかで判断
+if($kakutei_count != 0){
+print "<table border='1'>";
+
+    print('<tr><th>商品</th><th>数量</th><th>金額</th></tr>');
+
+print "</table>";
+
+print "<div class='over'>";
+print "<table border='1'>";       
         print('<tr>');
     // 変数を0で定義    
         $order_all = 0;
         $money_all = 0;
     // 確定フラグがtrueで会計フラグがfalseの場合
-     $order_sql = $dbconnect->db-> query('select * from order_table where decition_flag=1 && pay_flag =0 && terminal_id = '.$table_no);
+    //  $order_sql = $dbconnect->db-> query('select * from order_table where decition_flag=1 && pay_flag =0');
      while($result = $order_sql->fetch()){
         //レコードで取り出した中からカラムを指定して取り出せる
         // print("オーダーidは「".$result['order_id']."」");
@@ -52,7 +84,7 @@
     $menu_sql = $dbconnect->db-> query('select * from menu_table where menu_id='.$mnu_id);
     while($result = $menu_sql->fetch()){
         //レコードで取り出した中からカラムを指定して取り出す
-    
+        
         print("<td>".$result['menu_name']."</td>");
         print("<td>".$suuryou."</td>");
 
@@ -69,35 +101,49 @@
         print("<td>".$goukei."円"."</td>"."</tr>");
         }; 
     };
-?>
-</table>
+
+ 
+
+print "</table>";
+print "</div>";
+
+print "<div class='sum_table'>";
+print "<table border='1'>";
 
 
-<table border="1">
-
-<?php 
     print("<tr>"."<th>"."合計注文数"."</th>");
     print("<td>".$order_all."点"."</td>"."</tr>"); 
 
     print("<tr>"."<th>"."合計金額"."</th>");
     print("<td>".$money_all."円"."</td>"."</tr>");
-?>
 
-</table>
 
-<footer>
-<div class="fotter_menu">
-  <a href="category.php">メニューに戻る</a>
+print "</table>";
+print "</div>";
+
+
+
+print "<footer>";
+print "<div class='fotter_menu'>";
+  print ("<a href='category.php'>"."メニューに戻る"."</a>");
   
-  <?php 
+  
    if($money_all != 0){ //会計が0円の時は以下の表示をさせない
         //セッションpay_totalに合計金額を保持
        $_SESSION['pay_total'] = $money_all;
 
        print('<input type="button" name="goto_pay" onclick="location.href=\'pay.php\'" value="お会計に進む">');
    }
-   ?>
-</div>
+
+} else {
+
+    print "商品が注文されていません";
+
+    print('<input type="button" onclick="location.href=\'category.php\'" value="カテゴリー画面へ">');
+
+}
+
+?>
 </footer>
     
 </body>

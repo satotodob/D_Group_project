@@ -35,6 +35,8 @@
     session_start();
     require_once "db_connect.php";
     $dbconnect = new connect();
+
+    unset($_SESSION['manager']);//管理者認証をはずす
     
     if(!isset($_SESSION['user_name'])){//user_nameが届かない場合(非ログイン時)
         //index.phpに飛ばします

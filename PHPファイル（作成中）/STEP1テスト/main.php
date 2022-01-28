@@ -94,9 +94,8 @@
                 echo "<script>window.location.href = 'index.php';</script>";
                 exit;
             }
-            
-            $ini_import = parse_ini_file("terminal.ini", true);
-            $table_no = $ini_import["number"];//注文卓番号
+
+            $table_no = $_SESSION['table_no'];//注文卓番号
         ?>
         <?php
         //読み込みの関係上、ポストされた情報（ＤＢにインサート等変更を加える処理）は先頭で行います
@@ -260,7 +259,8 @@
                 </tr>
             </table>
             
-            <input type="submit" id="confirm" name="confirm" value="確定">
+            <?php if($order_count != 0){?>
+            <input type="submit" id="confirm" name="confirm" value="確定"><?php }?>
         </form>
         
     </div>        

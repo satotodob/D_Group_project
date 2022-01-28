@@ -5,14 +5,18 @@
   <title>お会計画面ダミー</title>
 
 </head>
+<style>
+  body{
+    text-align:center;
+  }
+</style>
 
 <?php
     session_start();
     require_once "db_connect.php";
     $dbconnect = new connect();
 
-    $ini_import = parse_ini_file("terminal.ini", true);
-    $table_no = $ini_import["number"];
+    $table_no = $_SESSION['table_no'];//注文卓番号
     
     unset($_SESSION['manager']);//管理者認証をはずす
     
@@ -27,22 +31,49 @@
     <h2>お会計ダミーページ</h2>
     
     <?php 
-      //確定済み注文を支払いする
-      if(isset($_SESSION['pay_total'])){//合計金額がセッションにあれば
-        $totalfee = $_SESSION['pay_total'];
-        $zei = floor($totalfee * 0.1);
-        $zeikomi = $totalfee + $zei;
-        echo '合計お支払い金額は「'.$totalfee.'」円 ＋（'.$zei.'）税';
-        echo '<br>￥'.$zeikomi.'（税込み）';
-        
-      ?>
+      //未確定注文がないか件数チェック
+      $stmt = $dbconnect->db->query('select count(*) as cnt from order_table where terminal_id = '.$table_no.' and decition_flag = 0');
+      $order_count = $stmt ->fetchcolumn();
+      $pay_total = 0;
+      //注文卓指定　確定済みかつ未払い注文
+      $orders = $dbconnect->db-> query('select * from order_table where decition_flag=1 && pay_flag =0 && terminal_id = '.$table_no);
+      while($result = $orders->fetch()){
+      $menuid = $result['menu_id'];//メニューid
+      $ord_qty = $result['quantity'];//数量
 
+        //確定済みのメニューの単価ループ
+        $menu_info = $dbconnect->db-> query('select menu_pay from menu_table where menu_id = '.$menuid);
+        while($menu_price = $menu_info->fetchColumn()){
+          $unit_total = $ord_qty * $menu_price;
+          $pay_total += $unit_total;
+        }
+      }
+        $tax = floor($pay_total * 0.1);
+        $in_tax = $pay_total + $tax;
+        if($pay_total != 0){
+          print('<h3>現時点の注文金額「￥'.$pay_total.'(+税:'.$tax.')」<br>
+          '.$in_tax.'円です。</h3><br>');
+        }
+    ?>
+
+<?php if($pay_total == 0){//会計するものがない時 ?>
+        ご注文がありません。<br>
+        <a href="category.php">メニュー画面</a>より、ご注文ください。<br>
+    <?php }else if($order_count != 0 && $pay_total != 0){ ?>
+        <!------会計するものがあり、かつ、未確定注文がある場合------->
+        未確定の注文があります。<br>
+        お会計をする場合、未確定注文はキャンセルされます。<br>
+       
+    <?php } 
+      if($pay_total != 0){//お会計するものがある時
+    ?>
+     <button onclick="location.href='category.php'">menu画面に戻る</button><br><br>
     <form method="post" action="">
     <input type="submit" name="checkout" value="会計したことにする">
-    <?php echo '<input type="hidden" name="total_fee" value='.$totalfee.'></form>';
-     }
+    <?php echo '<input type="hidden" name="total_fee" value='.$pay_total.'></form>';
+    }
     ?>
-  
+
     <?php 
       if(isset($_POST['checkout'])){//会計したことにするボタン押したら
       date_default_timezone_set('Asia/Tokyo');//日本時間設定
@@ -66,13 +97,17 @@
         $kakutei_order->bindValue(':terminal_no', $table_no, PDO::PARAM_INT);
         $kakutei_order->execute();
 
-        //セッションの情報を削除
-        unset($_SESSION['pay_total']);//session 'pay_total'を削除 unset
-
-        echo "<script>window.location.href = 'category.php';</script>";
+        if($order_count != 0){//未確定注文がある時
+          $unconf_order = $dbconnect->db->query('select * from order_table where terminal_id = '.$table_no.' and decition_flag = 0');
+          while($unconf = $unconf_order->fetch()){
+            $ord_id = $unconf['order_id'];//未確定のオーダーid
+            //オーダーを削除する
+            $del = $dbconnect->db->query('delete from order_table where order_id ='.$ord_id);
+        }
+        }
+        echo "<script>window.location.href = 'thankyou.php';</script>";
       }
     ?>
 
-    <button onclick="location.href='category.php'">menu画面に戻る</button>
 </body>
 </html>

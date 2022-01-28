@@ -79,6 +79,8 @@ $dbconnect = new connect();
 
 unset($_SESSION['manager']);//管理者認証をはずす
 
+$table_no = $_SESSION['table_no'];//注文卓番号
+
 if(!isset($_SESSION['user_name'])){//user_nameが届かない場合(非ログイン時)
     //index.phpに飛ばします
      echo "<script>window.location.href = 'index.php';</script>";
@@ -111,9 +113,6 @@ if(isset($_POST['manager'])){
     <input type="submit" name="history" value="履歴">
 
     <?php
-    $ini_import = parse_ini_file("terminal.ini", true);
-    $table_no = $ini_import["number"];//注文卓番号
-    
     $order_sql = $dbconnect->db-> query('select * from order_table where decition_flag=1 && pay_flag =0 && terminal_id ='. $table_no);
     $kakutei_count = $order_sql ->fetch();
     

@@ -37,6 +37,8 @@
     $dbconnect = new connect();
 
     unset($_SESSION['manager']);//管理者認証をはずす
+
+    $table_no = $_SESSION['table_no'];//注文卓番号
     
     if(!isset($_SESSION['user_name'])){//user_nameが届かない場合(非ログイン時)
         //index.phpに飛ばします
@@ -51,10 +53,7 @@
 
 <h1>注文履歴</h1>
 <?php
-$ini_import = parse_ini_file("terminal.ini", true);
-$table_no = $ini_import["number"];//注文卓番号
-
-$order_sql = $dbconnect->db-> query('select * from order_table where decition_flag=1 && pay_flag =0 && terminal_id ='. $table_no);
+$order_sql = $dbconnect->db-> query('select * from order_table where decition_flag=1 && pay_flag =0&& terminal_id = '.$table_no);
 // $kakutei_count = $order_sql ->fetchcolumn();
 // $kakutei_count = $order_sql ->fetch(PDO::FETCH_ASSOC);
 $kakutei_count = $order_sql ->fetch();
@@ -134,9 +133,7 @@ print "<div class='fotter_menu'>";
   
   
    if($money_all != 0){ //会計が0円の時は以下の表示をさせない
-        //セッションpay_totalに合計金額を保持
-       $_SESSION['pay_total'] = $money_all;
-
+       
        print('<input type="button" name="goto_pay" onclick="location.href=\'pay.php\'" value="お会計に進む">');
    }
 

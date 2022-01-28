@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>カテゴリ画面</title>
+    <title>管理者カテゴリ画面</title>
 
     <style>
         body*{
@@ -69,40 +69,37 @@
     </style>
 
 </head>
-<body>
-<form action="" method="post">
 
-<?php
-// お会計ページ
-if(isset($_POST['drink'])){
-    header("Location:drink.php");
-}
-// 管理者ページ
-if(isset($_POST['manager'])){
-    header("Location:manager_login.php");
-}
+<?php 
+     session_start();
+     require_once "db_connect.php";
+     $dbconnect = new connect();
 
+     if(!isset($_SESSION['manager'])){//管理者確認未チェック時
+        //index.phpに飛ばします
+         echo "<script>window.location.href = 'manager_login.php';</script>";
+        exit;
+     }
+
+     // ホーム画面へ
+     if(isset($_POST['home'])){
+        header("Location:home.php");
+     }
 
 ?>
 
+<body>
+<form action="" method="post">
+
 <header>
-    <input type="submit" name="manager" value="管理者">
+    <input type="submit" name="home" value="ホーム画面へ">
 </header>
 
 <div class="category">
-  <a href="main.php">串もの<br>SPIT-ROASTING FOOD</a>
-  <a href="drink.php">飲み物<br>DRINK</a>
-  <a href="side.php">サイドメニュー<br>SIDE-MENU</a>
+  <a href="users_manage.php">ユーザー情報管理<br>-User-</a>
+  <a href="inventory.php">在庫補充管理<br>-Inventory-</a>
+  <a href="menu_manage.php">メニュー情報管理<br>-MenuManage-</a>
 </div>
-
-<footer>
-<div class="">
-    <input type="submit" name="history" value="履歴">
-</div>
-</footer>
-
-
-
 
 </form>
     

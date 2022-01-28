@@ -40,6 +40,12 @@
         <div class="login">
             <div class="form">
             <h2>ホーム</h2>
+               <?php 
+                session_start();
+                if(isset($_SESSION['user_name'])){
+                    echo $_SESSION['user_name'];
+                }
+              ?>
             <div class="form-field">
                 <button type="submit" class="button" name="khach">
                     <div class="arrow">

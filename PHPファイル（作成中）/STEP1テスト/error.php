@@ -72,10 +72,6 @@
             background-color:#8d8d8d;
         }
     </style>
-    <?php
-    require_once "All.php";
-    $dbconnect = new connect();  
-    ?>
     
     <body>
     <form method ="post" action="">
@@ -88,10 +84,18 @@
         </div> 
     </body>
     <?php
-    session_start();
-    if(isset($_POST['rogin_page'])){
+        session_start();
+        //ログインページに行くのでセッションの情報を削除
+        unset($_SESSION['user_name']);//session 'username'を削除 unset
+        unset($_SESSION['pass']);//session 'password'を削除 unset
+        unset($_SESSION['manager']);//管理者確認　session 'manager'を削除
+        $_SESSION = array();
+        setcookie(session_name(), '', time()-1, '/');
+        session_destroy();
+
+        if(isset($_POST['rogin_page'])){
         header("Location:index.php");
-    }
+        }
     ?>
    
 </html>

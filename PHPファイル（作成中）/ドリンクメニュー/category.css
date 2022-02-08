@@ -7,14 +7,14 @@ table{ margin-left: auto;
 
 .container-area h1{ font-size: 5vw; }
 
-.drink-area .drink-form-container
+.object-area .object-form-container
 {
     width: 90vw;
     overflow: hidden;
     margin: 0 auto;
 }
 
-.drink-form-container span
+.object-form-container span
 {
     width: 30vw;
     float: left;
@@ -23,7 +23,7 @@ table{ margin-left: auto;
     box-sizing: border-box;
 }
 
-.drink-form-container button
+.object-form-container button
 {
     width: 30vw;/* imgタグとwidth,heightの大きさを揃える */
     height: 30vw;
@@ -35,7 +35,7 @@ table{ margin-left: auto;
     z-index: 2;/*透明なボタンが画像より手前に来るようにz-indexを指定*/
 }
 
-.drink-form-container button
+.object-form-container button
 {
     cursor: pointer;
 }
@@ -43,4 +43,11 @@ table{ margin-left: auto;
 .modal
 {
     display: none;
+}
+
+.ft_btn{
+    margin: 15px;
+}
+.cnf_btn{
+    margin-top: 5px;
 }

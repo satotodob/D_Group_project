@@ -14,6 +14,14 @@
     <button type="submit" name="kanri">
       <p>管理者画面へ</p>
     </button>
+      
+    <select name="select">
+        <option value="1">選択してください</option>
+        <option value="2">串もの</option>
+        <option value="3">飲み物</option>
+        <option value="4">サイド</option>
+    </select>
+    <button id="submit" name="send">選択</button><br>
 
     <table border="1">
         <tr>

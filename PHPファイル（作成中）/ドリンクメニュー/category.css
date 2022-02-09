@@ -45,9 +45,12 @@ table{ margin-left: auto;
     display: none;
 }
 
-.ft_btn{
+.ft_btn
+{
     margin: 15px;
 }
-.cnf_btn{
+
+.cnf_btn
+{
     margin-top: 5px;
 }

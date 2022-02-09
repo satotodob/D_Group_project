@@ -199,8 +199,17 @@
                                                     </div>
 
                                                     <div class="modal-footer">
-                                                            <input type="button" class="btn btn-secondary" data-dismiss="modal" value="戻る">
-                                                            <input type="submit" class="btn btn-primary" value="確定">
+                                                        <?php
+                                                            if($m_invent == 0)
+                                                            {
+                                                                print ('<input type="button" class="btn btn-secondary" data-dismiss="modal" value="戻る">');
+                                                            }
+                                                            else
+                                                            {
+                                                                print ('<input type="button" class="btn btn-secondary" data-dismiss="modal" value="戻る">');
+                                                                print ('<input type="submit" class="btn btn-primary" value="確定">');
+                                                            }
+                                                        ?>
                                                     </div>
 
                                                 </div>
@@ -262,14 +271,14 @@
                     ?>
             </table>
             <?php if($order_count != 0){?>
-            <div class="cnf_btn"><input type="submit" id="confirm" name="confirm" value="確定"></div><?php }?>
+            <div class="cnf_btn"><input type="submit" id="confirm" name="confirm" value="確定" style="height: 50px; width: 70px; position: fixed; bottom: 90px; background-color: #42efff;"></div><?php }?>
 
         </form>
         </div>
 
         <div class="ft_btn">
-        <input type="button" id="back" name="back" value="戻る" onclick="location.href='category.php'">
-        <input type="button" id="history" name="history" value="履歴" onclick="location.href='rireki.php'">
+            <input type="button" id="back" name="back" value="戻る" onclick="location.href='category.php'" style="height: 50px; width: 70px; position: fixed; bottom: 90px; left: 100px;">
+            <input type="button" id="history" name="history" value="履歴" onclick="location.href='rireki.php'" style="height: 50px; width: 70px; position: fixed; bottom: 90px; right: 100px;">
         </div>
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

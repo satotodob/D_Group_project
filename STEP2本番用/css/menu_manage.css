@@ -1,0 +1,58 @@
+body{
+    background-color :#c0c0c0;
+    }
+    h1,h2{
+        text-align: center;
+    }
+    table{
+        margin-left: auto;
+        margin-right: auto;
+        width: 700px;
+    }
+    .table-header {
+        background-color: #95A5A6;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+    }
+    .select{
+        position: relative;
+        display: flex;
+        width: 20em;
+        height: 3em;
+        line-height: 3;
+        margin-left: auto;
+        margin-right: auto;        
+    }
+    button{
+        position: relative;
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #submit{
+        height: 50px;
+        width: 100px;
+        text-align: center;
+    }
+    .mydiv{
+        text-align: center;
+        margin: 5px 0px;
+    }
+    .pricezone{
+        width: 150px;
+    }
+    .msg{
+        color:red;
+    }
+    .info{
+    text-align: center;
+    width: 70%;
+    padding: 0.5em 1em;
+    margin-left: auto;
+    margin-right: auto;
+    background: #FFF;
+    border: solid 2px #6091d3;/*線*/
+    border-radius: 10px;/*角の丸み*/
+  }
+  

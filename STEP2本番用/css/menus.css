@@ -1,0 +1,80 @@
+body{ text-align: center }
+
+table{ margin-left: auto;
+        margin-right: auto; }
+
+.site-width{ width: 100vw; }
+
+.container-area h1{ font-size: 5vw; }
+
+.container-area{
+    width: 900px;
+    overflow: hidden;
+    margin: 0 auto;
+    position: relative;
+}
+
+.container-area .object_btn {/*div要素全体をボタンにする設定*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    /* buttonのスタイル削除 */
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+    appearance: none;
+}
+
+.object_img span{
+    width: 300px;
+    float: left;
+    position: relative;
+    border: 1px black solid;
+    box-sizing: border-box;
+}
+
+.object_img img{
+    width: 298px;
+}
+
+
+
+.ft_btn
+{
+    margin: 15px;
+}
+
+.cnf_btn
+{
+    margin-top: 5px;
+}
+
+
+.qty-radio input[type="radio"] {/*modal内のradioボタンをボタン風にする設定*/
+    display:none;
+}
+
+.qty-radio label {/*modal内のradioボタンをボタン風にする設定*/
+    display:inline-block;
+    color:#fff;
+    background-color:#c6c6ed;
+    padding:5px 10px;
+    margin: 5px;
+    border-radius: 30px;
+    
+}
+
+.qty-radio input[type="radio"]:checked + label {/*modal内のradioボタン選択時の設定*/
+    background-color:#4169e1;
+}
+
+.return{
+    width:100%;
+    display: flex;
+    align-items: flex-start;
+}
+

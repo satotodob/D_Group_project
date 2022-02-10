@@ -1,0 +1,102 @@
+body{
+    position: relative;
+    background-image: url(./css/haikei.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+/* ボタン */
+.main {
+    display       : inline-block;
+    border-radius : 5%;          /* 角丸       */
+    font-size     : 30pt;        /* 文字サイズ */
+    text-align    : center;      /* 文字位置   */
+    cursor        : pointer;     /* カーソル   */
+    padding       : 70px 40px;   /* 余白       */
+    background    : #ffffff;     /* 背景色     */
+    color         : #000000;     /* 文字色     */
+    line-height   : 1em;         /* 1行の高さ  */
+    transition    : .3s;         /* なめらか変化 */
+    box-shadow    : 2px 2px #666666;  /* 影の設定 */
+    border        : 2px solid #ffffff;    /* 枠の指定 */
+    background-image: url(./css/yakitori.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .main:hover {
+    box-shadow    : none;        /* カーソル時の影消去 */
+    color         : #ffffff;     /* 背景色     */
+    /*background    : #000000;      文字色     */
+  }
+  .side {
+    display       : inline-block;
+    border-radius : 5%;          /* 角丸       */
+    font-size     : 30pt;        /* 文字サイズ */
+    text-align    : center;      /* 文字位置   */
+    cursor        : pointer;     /* カーソル   */
+    padding       : 70px 40px;   /* 余白       */
+    background    : #ffffff;     /* 背景色     */
+    color         : #000000;     /* 文字色     */
+    line-height   : 1em;         /* 1行の高さ  */
+    transition    : .3s;         /* なめらか変化 */
+    box-shadow    : 2px 2px #666666;  /* 影の設定 */
+    border        : 2px solid #ffffff;    /* 枠の指定 */
+    background-image: url(./css/side.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .side:hover {
+    box-shadow    : none;        /* カーソル時の影消去 */
+    color         : #ffffff;     /* 背景色     */
+    /*background    : #000000;      文字色     */
+  }
+  .drink {
+    display       : inline-block;
+    border-radius : 5%;          /* 角丸       */
+    font-size     : 30pt;        /* 文字サイズ */
+    text-align    : center;      /* 文字位置   */
+    cursor        : pointer;     /* カーソル   */
+    padding       : 110px 40px;   /* 余白       */
+    background    : #ffffff;     /* 背景色     */
+    color         : #000000;     /* 文字色     */
+    line-height   : 1em;         /* 1行の高さ  */
+    transition    : .3s;         /* なめらか変化 */
+    box-shadow    : 2px 2px #666666;  /* 影の設定 */
+    border        : 2px solid #ffffff;    /* 枠の指定 */
+    background-image: url(./css/beers.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .drink:hover {
+    box-shadow    : none;        /* カーソル時の影消去 */
+    color         : #ffffff;     /* 背景色     */
+    /*background    : #000000;      文字色     */
+  }
+  .history{
+    display       : inline-block;
+    border-radius : 50%;          /* 角丸       */
+    font-size     : 13pt;        /* 文字サイズ */
+    text-align    : center;      /* 文字位置   */
+    cursor        : pointer;     /* カーソル   */
+    padding       : 12px 22px;   /* 余白       */
+    background    : #ffffff;     /* 背景色     */
+    color         : #000000;     /* 文字色     */
+    line-height   : 1em;         /* 1行の高さ  */
+    opacity       : 1;           /* 透明度     */
+    transition    : .3s;         /* なめらか変化 */
+  }
+  .history:hover{
+    box-shadow    : none;        /* カーソル時の影消去 */
+    opacity       : 0.8;
+  }
+  .manager{
+    display       : inline-block;
+    margin-left: 95%;
+    font-size     : 13pt;        /* 文字サイズ */
+    text-align    : center;      /* 文字位置   */
+    cursor        : pointer;     /* カーソル   */
+    padding       : 12px 22px;   /* 余白       */
+    background    : #ffffff;     /* 背景色     */
+    color         : #000000;     /* 文字色     */
+    line-height   : 1em;         /* 1行の高さ  */
+  }

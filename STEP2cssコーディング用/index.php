@@ -74,16 +74,35 @@
         if(isset($_FILES['filedata']['name'])){
             if($_FILES['filedata']['name'] == "terminal.ini"){ //正しくアップされた場合
                 $ini_import = parse_ini_file($_FILES['filedata']['tmp_name'], true);
-                $table_no = $ini_import["number"];
-                $_SESSION['table_no'] = $table_no;
+
+                if(isset($ini_import['number'])){//配列[キー]numberがあるか
+                    if (preg_match('/^[1-9][0-9]*$/', $ini_import['number'])) {//1から始まる数字か
+                        $keta = strlen($ini_import['number']);
+                        if($keta < 3){//2桁以内の数字で許可
+                            $table_no = $ini_import["number"];
+                            $_SESSION['table_no'] = $table_no;
+                        }else{
+                            print('<font color="red">ファイルの中身が正しくありません。
+                            <br>numberは1以上2桁以内の数字にしてください。</font><br>');
+                        }
+                    }else{
+                        print('<font color="red">ファイルの中身が正しくありません。
+                        <br>numberは1以上2桁以内の数字にしてください。</font><br>');
+                    }
+                }else{//numberセットがされていないファイル
+                    print('<font color="red">ファイルの中身が正しくありません。
+                    <br>「number = 数字」かご確認ください。</font><br>');
+                }
+ 
             }else{
                 if(empty($_FILES['filedata']['name'])){ //アップされていない
-                    print('<br><font color="red">ファイルがアップロードされていません</font><br>');
+                    print('<font color="red">ファイルがアップロードされていません</font><br>');
                 }else{ //アップされたファイルがterminal_ini以外
-                    print('<br><font color="red">「terminal.ini」ファイル以外はアップロードできません</font><br>');
+                    print('<font color="red">「terminal.ini」ファイル以外はアップロードできません</font><br>');
                 }
             }
         }
+      
 
         if($_POST['uname']){
         $uname= ($_POST["uname"]);
@@ -125,7 +144,7 @@
         }
     ?>
     
-        ユーザーID：<input typw="text" name="uname" value="" required>
+        ユーザーID：<input type="text" name="uname" value="" required>
         <br>
         パスワード：<input type="password" name="pass" size="20" value=""  required>
         <br>

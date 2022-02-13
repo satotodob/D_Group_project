@@ -10,9 +10,13 @@
     }
     header{
       width: 100%;
-      text-align: right;
-      float: right;
+      text-align: left;
+      float: left;
       margin: 20px;
+    }
+    [name="home"]{
+        float: right;
+        margin-right: 40px;
     }
     footer{
       width: 100%;
@@ -79,13 +83,24 @@
      if(isset($_POST['home'])){
         header("Location:home.php");
      }
+     
+     if(isset($_POST['logout'])){
+        unset($_SESSION['user_name']);
+        unset($_SESSION['pass']);
+        unset($_SESSION['manager']);
+        $_SESSION = array();
+        setcookie(session_name(), '', time()-1, '/');
+        session_destroy();
 
+        header("Location:index.php");
+    }
 ?>
 
 <body>
 <form action="" method="post">
 
 <header>
+    <input type="submit" name="logout" value="ログアウト">
     <input type="submit" name="home" value="ホーム画面へ">
 </header>
 

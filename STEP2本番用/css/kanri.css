@@ -2,16 +2,18 @@ body*{
     position: fixed;
 }
 header{
-    width: 100%;
-    text-align: right;
-    float: right;
-    margin: 20px;
-}
+      width: 100%;
+      text-align: left;
+      float: left;
+      margin: 20px;
+    }
+[name="home"]{
+        float: right;
+        margin-right: 40px;
+    }
 footer{
     width: 100%;
     padding: 30px 0;
-
-    
 }
 .category a {
     display: flex;

@@ -65,7 +65,7 @@
                     if(isset($_POST["add_name"])){ 
                         $add_name = $_POST["add_name"]; 
                     if(isset($_POST["add_pay"])) $add_pay = $_POST["add_pay"]; 
-                    if(isset($_POST["category"])) $category = $_POST["category"];
+                    if(isset($_POST["m_category"])) $category = $_POST["m_category"];
                     
                     
                     $name_cnt = $dbconnect->db->query('select count(menu_name) from menu_table where menu_name ="'.$add_name.'"');

@@ -40,6 +40,7 @@
 
             .object_img span{
                 width: 300px;
+                height: 13.015vw;
                 float: left;
                 position: relative;
                 border: 1px black solid;

@@ -5,8 +5,9 @@
     <title>ユーザー管理画面</title>
 
     <style>
-      body{
+     body{
         text-align: center;
+        background-color:#95A5A6;
       }
 
     </style>

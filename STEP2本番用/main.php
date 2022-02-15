@@ -97,9 +97,11 @@
             }
         ?>
 
+    <header>
+        <img id="gazo" src="./css/categories/images.png">
         <h1 name="object">串物</h1>
-
-        
+    </header>    
+                
             <div class="container-area"><!-- メイン画面 -->
                 <div class="object_img"><!-- 画像選択 -->
                     <?php
@@ -122,7 +124,7 @@
 
                                 print ('<span>');
                                 print($menuname.'　2本 '.$m_price.'円');
-                                print ('<img src="'.$image.'">');
+                                print ('<img class="foodimg" src="'.$image.'">');
                                 print ('<button type="button" class="object_btn" value="'.$image.'" data-toggle="modal" data-target="#'.$menuname.'"></button>');
                                 print ('</span>');
                     ?>

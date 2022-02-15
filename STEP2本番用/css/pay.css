@@ -1,3 +1,39 @@
 body{
     text-align:center;
+    background-image: url("image/back.jpg");
   }
+
+  .return{
+    font-size     : 15px;
+    cursor        : pointer;     /* カーソル   */
+    padding       : 10px 10px;   /* 余白       */
+    background    : #d3956c;   /* 背景色     */
+    color         : #595857;     /* 文字色     */
+    line-height   : 1em;         /* 1行の高さ  */
+    box-shadow    : 1px 1px #595857;  /* 影の設定 */
+    border        : 2px solid #ffffff;    /* 枠の指定 */
+}
+.return:hover{
+  box-shadow    : none;        /* カーソル時の影消去 */
+  color         : black;
+  background-color: #db8449;
+  transform     : scale(1.05);
+  transition    : .3s;
+}
+[name="checkout"]{
+  color         : #595857;
+  box-shadow    : 2px 2px #666666;  /* 影の設定 */
+  border        : 2px solid #ffffff;    /* 枠の指定 */
+  cursor        : pointer;     /* カーソル   */
+  text-align    : center;
+  background    : #d3956c;
+  font-size: 25px;
+}
+[name="checkout"]:hover{
+  background-color: #db8449;
+  color         : black;
+  box-shadow    : none;        /* カーソル時の影消去 */
+  font-size     : 27px;        /* 文字サイズ */
+  transform     : scale(1.05);
+  transition    : .3s;
+}

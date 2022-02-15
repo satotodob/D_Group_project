@@ -97,8 +97,10 @@
             }
         ?>
 
+    <header>
+        <img id="gazo" src="./css/categories/images.png">
         <h1 name="object">飲み物</h1>
-
+    </header>
         
             <div class="container-area"><!-- メイン画面 -->
                 <div class="object_img"><!-- 画像選択 -->
@@ -122,7 +124,7 @@
 
                                 print ('<span>');
                                 print($menuname.'　'.$m_price.'円');
-                                print ('<img src="'.$image.'">');
+                                print ('<img class="drinkimg" src="'.$image.'">');
                                 print ('<button type="button" class="object_btn" value="'.$image.'" data-toggle="modal" data-target="#'.$menuname.'"></button>');
                                 print ('</span>');
                     ?>

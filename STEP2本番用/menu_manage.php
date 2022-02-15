@@ -318,7 +318,7 @@
 
     <!----------------------✔入れて表示する欄↓-------------------------------------------->
         <table border="1" class="re_pre">
-        <tr><th width="10%">商品ID</th><th>商品名</th><th width="20%">価格</th><th width="17%">カテゴリ</th><th width="15%">登録状況</th><tr>
+        <tr class="table-header"><th width="10%">商品ID</th><th>商品名</th><th width="20%">価格</th><th width="17%">カテゴリ</th><th width="15%">登録状況</th><tr>
         </table>
         
         <form action="" method="POST">

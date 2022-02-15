@@ -6,6 +6,7 @@
   <style>
       body{
           text-align:center;
+          background-color :#c0c0c0;
       }
       div{
           margin:15px 0px;

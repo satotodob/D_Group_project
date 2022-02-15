@@ -27,7 +27,7 @@
 ?>
 
 <body>
-    <h2>お会計</h2>
+    <h1>お会計</h1>
     <?php
       //未確定注文がないか件数チェック
       $stmt = $dbconnect->db->query('select count(*) as cnt from order_table where terminal_id = '.$table_no.' and decition_flag = 0');
@@ -65,9 +65,9 @@
     <?php } 
       if($pay_total != 0){//お会計するものがある時
     ?>
-     <button onclick="location.href='category.php'">menu画面に戻る</button><br><br>
+     <button class="return" onclick="location.href='category.php'">menu画面に戻る</button><br><br>
     <form method="post" action="">
-    <input type="submit" name="checkout" value="会計したことにする">
+    <input type="submit" name="checkout" value="会計済みにする">
     <?php echo '<input type="hidden" name="total_fee" value='.$pay_total.'></form>';
     }
     ?>

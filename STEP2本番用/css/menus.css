@@ -1,17 +1,53 @@
-body{ text-align: center }
+body{ text-align: center;
+	background: #250d00;
+}
+
+header{
+    display:flex;
+    }
+
+#gazo{
+    display: inline-block;
+    margin:10px;
+    }
+
+h1[name="object"]{
+                display: inline-block;
+                position: absolute;
+                color: #ffffff;
+                left: 0;
+                right: 0;
+                top: 40px;
+                margin: auto;
+                
+            }
 
 table{ margin-left: auto;
-        margin-right: auto; }
+        margin-right: auto;
+        background:white;
+     }
 
 .site-width{ width: 100vw; }
 
 .container-area h1{ font-size: 5vw; }
 
 .container-area{
-    width: 900px;
-    overflow: hidden;
+    width: 920px;
+    height: 480px;
+    overflow: auto;
     margin: 0 auto;
     position: relative;
+}
+.container-area::-webkit-scrollbar {  /*koko スクロールバー */
+    width: 13px;
+ }
+.container-area::-webkit-scrollbar-track {
+    border-radius: 8px;
+    box-shadow: 0 0 4px #aaa inset;
+}
+.container-area::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: #702121;
 }
 
 .container-area .object_btn {/*div要素全体をボタンにする設定*/
@@ -33,15 +69,23 @@ table{ margin-left: auto;
     width: 300px;
     float: left;
     position: relative;
-    border: 1px black solid;
+    border: 1px #250d00 solid;
     box-sizing: border-box;
+    background:white;
 }
 
 .object_img img{
     width: 298px;
 }
 
-
+.drinkimg{
+    width: 298px;
+    height: 223px;
+}
+.foodimg{
+    width: 298px;
+    height: 298px;
+}
 
 .ft_btn
 {

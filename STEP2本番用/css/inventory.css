@@ -1,7 +1,157 @@
-form{
-    text-align: center;
-}
-table{
-    margin-right:auto;
-    margin-left:auto;
-}
+        form{
+            text-align: center;
+        }
+
+        body{
+            background-color :#c0c0c0;
+
+        }
+
+        .h2{
+            margin-top: 75px;
+        }
+
+        .row{
+            text-align:right;
+            margin-right:230px;
+            margin-top:-71px;
+            margin-bottom:50px;
+        }
+
+        table{
+            margin-left: auto;
+            margin-right: auto;
+            width: 750px;
+            height:350px;
+            border-width:2px;
+            border-color:#1955A6;
+         
+        }
+
+        th{
+            background-color:#95A5A6;
+        }
+
+        td{
+            background-color:white;
+
+        }
+
+        #count{
+            background-color:#95A5A6;
+
+        }
+
+        .button{
+            margin-top:50px;
+            margin-left:-250px;
+            margin-right:-250px;
+            display: flex;
+            justify-content: space-evenly;
+
+        }
+
+        .button input {
+        display: flex;
+        margin: 0 auto;
+        padding-left:18px;
+        padding-right:30px;
+        height:40px;
+        width: 120px;
+        color: block;
+        font-size: 13px;
+        font-weight: 700;
+        border: 2px solid #1955A6;
+        border-radius: 2px;
+        }
+
+        /*.button input::after {
+        content: '';
+        width: 5px;
+        height: 5px;
+        border-top: 3px solid #2285b1;
+        border-right: 3px solid #2285b1;
+        transform: rotate(45deg);
+        }*/
+
+        .button input:hover {
+        color: #333333;
+        background-color: #dcdcdc;
+        }
+
+        /*.button input:hover::after {
+        border-top: 3px solid #333333;
+        border-right: 3px solid #333333;
+        }*/
+
+        .row input{
+        margin: 0;
+        padding-left:18px;
+        padding-right:30px;
+        height:30px;
+        width: 100px;
+        color: block;
+        font-size: 10px;
+        font-weight: 700;
+        border: 1px solid #1955A6;
+        border-radius: 2px;
+
+        }
+        .row input:hover {
+        color: #333333;
+        background-color: #dcdcdc;
+        }
+
+
+        .row1 {
+        margin-left:78%;
+        overflow: hidden;
+        width: 300px; /*** セレクトボックスの横幅 ***/
+        text-align: right;
+        position: relative;
+        border: 1px solid #bbbbbb; /*** セレクトボックスのボーター設定 ***/
+        border-radius: 2px; /*** セレクトボックスの角丸 ***/
+        background-color : white; /*** セレクトボックスの背景色 ***/
+        }
+
+        .row1 select {
+        width: 100%;
+        text-indent: 0.01px;
+        border: none;
+        outline: none;
+        -webkit-appearance: none;
+        padding: 8px 38px 8px 8px;
+        color: #666666;
+        line-height: 1.5;
+        }
+        
+        /*.row1 select::-ms-expand {
+        display: none;
+        }*/
+
+        .row1::before {
+        position: absolute;
+        top: 12px;
+        right: 13px;
+        width: 10px;
+        height: 10px;
+        padding: 0;
+        content: '';
+        border-top: 2px solid #ffffff; /*** 矢印の色 ***/
+        border-right: 2px solid #ffffff; /*** 矢印の色 ***/
+        pointer-events: none;
+        z-index: 1;
+        transform: rotate(135deg);
+        }
+
+        .row1:after { 
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 38px;
+        content: '';
+        background: #1955A6; /*** 右側の背景色 ***/
+        pointer-events: none;
+        }
+        

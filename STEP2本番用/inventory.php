@@ -20,8 +20,24 @@
     ?>   
 
     <body>
-    <form method ="post" action="">
-    <h2>在庫管理 </h2> 
+        <form method ="post" action="">
+            <div class='h2'>
+            <h2>在庫管理 </h2>
+            </div>
+
+        <div class="row1">
+            <select name="order">
+                <option>選択してください</option>;
+                <option value="default">登録順</option>;
+                <option value="high">多い順</option>;
+                <option value="low">少ない順</option>;
+            </select>
+        </div>
+        
+        <br><br><br>
+        <div class="row">
+            <input type="submit" name="manage" value="並び変える">
+        </div>    
 
     <?php
     //在庫補充ボタン
@@ -41,19 +57,16 @@
                 $stmt = $dbconnect ->db->query("update menu_table set inventory = inventory + '$hoju_su' where menu_id = $menu_id");
 
             }
-        }
-
-            
-}
-    
+        }            
+    }
   
     //管理者画面ボタン
     if(isset($_POST['kanri'])){
-        header("Location:kanri.php");
+        header("Location:Kanri.php");
     }
      //商品管理ボタン
     if(isset($_POST['menu'])){
-        header("Location:menu_manage.php");
+        header("Location:Kanri.php");
     }
    
     print "<table border = 1>";
@@ -75,8 +88,7 @@
         } else if($_POST["order"] == "low"){
             $stmt = $dbconnect -> db->query("select * from menu_table order by inventory asc");
         } 
-}
-
+    }
    
     $count_num =  0;
     
@@ -85,7 +97,7 @@
 
         echo "<tr><td>";
         print($result["menu_name"]);
-        echo "</td><td>";
+        echo "</td><td  id = 'count'>";
         print($result["inventory"]);
         echo "</td><td>";
         //在庫補充のための2行
@@ -97,21 +109,16 @@
         echo "</table>";
 ?>
 
-    <select name="order">
-    <option>選択してください</option>;
-    <option value="default">登録順</option>;
-    <option value="high">多い順</option>;
-    <option value="low">少ない順</option>;
-
-    <input type="submit" name="manage" value="並び変える">
-    <input type="submit" name="refill" value="補充する">
-    
-    <div class= "kanri">
-    <input type="submit" name="kanri" value="管理者ホーム">
-    </div>
-
-    <div class= "menu">
-    <input type="submit" name="menu" value="商品管理画面">
+    <div class='button'>
+        <tr>
+            <td>
+            <input type="submit" name="kanri" value="管理者ホーム">
+            </td><td>
+            <input type="submit" name="refill" value="  補充する">
+            </td><td>
+            <input type="submit" name="menu" value="商品管理画面">
+            </td>
+        </tr>
     </div>
 </form>
 </html>

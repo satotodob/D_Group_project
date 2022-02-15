@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>履歴画面</title>
+    <link rel="stylesheet" href="css/rireki.css">
     <style>
            
     </style>

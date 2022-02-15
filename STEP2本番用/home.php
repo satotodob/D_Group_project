@@ -3,41 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title>ホーム</title>
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="css/home.css">
 
 </head>
 <style>
-    body{
-        background-color :#c0c0c0;
-        text-align: center;
-    }
-    h2{
-        margin-top:2em;
-    }
-    
-    .form-field button{
-            box-sizing: border-box;
-            display: block;
-            width: 85%;
-            border-width: 1px;
-            border-style: solid;
-            padding: 11px;
-            font-family: inherit;
-            font-size: 0.95em;
-            margin-top:100px; 
-            margin-left:auto;
-            margin-right:auto;
-        }
-
-        .form-field button:hover {
-            text-decoration: none;
-            background-color:#bebebe
-        }
-
-        .users{
-            margin:10px 0px;
-            font-size:15pt;
-        }
 
 </style>
 

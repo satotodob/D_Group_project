@@ -1,76 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title></title>
+        <title>接続エラー</title>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="css/error.css">
     </head>
     <style>
-        form{
-            text-align: center;
-           
-        }
 
-        body{ 
-            background-image:url("white1.jpeg");
-
-        }
-
-        h2{
-            size:100px; 
-            color:block; 
-            text-align:left;
-            margin:50px; 
-            font-family: "Arial", "メイリオ";
-
-         }
-
-         h3{
-            background-color:#e70000;
-            color:white;
-            height:30px;
-            padding:5px;
-            margin-top:75px; 
-            margin-left:50px;
-            margin-right:20px;
-            
-           
-         }
-
-         
-
-        .backlogin{
-            margin-top:50px;
-            text-align:left;
-            padding:25px;
-            margin-left:25px;
-        }
-
-        .backlogin input{
-            display: flex;
-            justify-content: space-between;
-           
-            height:40px;
-            width: 250px;
-            color: #f8f8f8;
-            font-size: 15px;
-            background-color: #5e5d5d;
-            /*transition: 0.3s;*/
-
-        }
-
-        .backlogin input::after{
-            content: '';
-            width: 5px;
-            height: 5px;
-            border-top: 3px solid #fc0101;
-            border-right: 3px solid #fc0101;
-            transform: rotate(45deg);
-        }
-
-        .backlogin input:hover {
-            text-decoration: none;
-            background-color:#8d8d8d;
-        }
     </style>
     
     <body>

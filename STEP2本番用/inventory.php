@@ -62,11 +62,11 @@
   
     //管理者画面ボタン
     if(isset($_POST['kanri'])){
-        header("Location:Kanri.php");
+        header("Location:kanri.php");
     }
      //商品管理ボタン
     if(isset($_POST['menu'])){
-        header("Location:Kanri.php");
+        header("Location:menu_manage.php");
     }
    
     print "<table border = 1>";

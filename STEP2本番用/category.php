@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>カテゴリ画面</title>
 
-    <link rel="stylesheet" href="css/category.css">
+    <link rel="stylesheet" href="css/css_category.css">
 
     <style>
     </style>
@@ -39,7 +39,7 @@ if(isset($_POST['manager'])){
 ?>
 
 <header>
-    <p><img class="img" src="./categories/images.png">
+    <p><img class="img" src="./css/categories/images.png">
     <input type="submit" name="manager" value="管理者"></p>
     <p class="moji">こちらから注文ができます！<br>画面をクリックしてメニューをお選びください。</p>
 </header>

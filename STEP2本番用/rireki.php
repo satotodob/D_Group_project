@@ -3,98 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>履歴画面</title>
+    <link rel="stylesheet" href="css/rireki.css">
     <style>
-        body{
-            background-image: url("./css/image/back.jpg") ;
-        }
-        h1,.c{
-            /*注文がない場合のCSS 中央 */
-            text-align    : center;
-            font-size     : 40px;
-        }
-        /*項目を動かさないためにtableをわけたのでカラムの幅を固定にして項目とデータの幅をあわせる
-          項目を動かしたい場合は、tebleを一つにする
-          スクロールはtableをdivで囲む
-        */
-        .tbody{
-            height        : 340px;
-            display       : block;
-            overflow-y    : scroll;
-        }
-        thead{
-            width         : 100%;
-            display       : block;
-            }
-        th,td {
-            border        : solid 1px;          /* 枠線指定 */
-            font-size     : 25px;
-            height        : 50px;
-            width         : 310px;
-        }
-        table{
-            margin        : auto;
-            background-image: url("./css/image/tback2.jpg");
-        }
-        h1{
-            font-size     : 45px
-        }
-        .fotter_menu{
-            margin-top    : 60px;
-        }
-        .atag{
-            font-size     : 15px;
-            cursor        : pointer;     /* カーソル   */
-            padding       : 10px 10px;   /* 余白       */
-            background    : #db8449;   /* 背景色     */
-            color         : black;     /* 文字色     */
-            line-height   : 1em;         /* 1行の高さ  */
-            box-shadow    : 1px 1px #595857;  /* 影の設定 */
-            border        : 2px solid #ffffff;    /* 枠の指定 */
-            margin-right  : 740px;
-        }
-        .atag:hover{
-            box-shadow    : none;        /* カーソル時の影消去 */
-            color         : #595857;   /* 背景色 */
-            transform     : scale(1.2);
-        }
-        [name="goto_pay"]{
-            transition    : .3s;         /* なめらか変化 */
-            box-shadow    : 2px 2px #666666;  /* 影の設定 */
-            border        : 2px solid #ffffff;    /* 枠の指定 */
-            cursor        : pointer;     /* カーソル   */
-            text-align    : center;
-            background-color: #ffffff;
-            font-size: 30px;
-        }
-        [name="goto_pay"]:hover{
-            box-shadow    : none;        /* カーソル時の影消去 */
-            font-size     : 30px;        /* 文字サイズ */
-            transform     : scale(1.1);
-        }
 
-        [name="manager"]{
-            margin-left   : 95%;
-            font-size     : 15pt;        /* 文字サイズ */
-            cursor        : pointer;     /* カーソル   */
-            padding       : 10px 10px;   /* 余白       */
-            background    : #595857;   /* 背景色     */
-            color         : white;     /* 文字色     */
-            line-height   : 1em;         /* 1行の高さ  */
-        }
-        .cbut{
-            transition    : .3s;         /* なめらか変化 */
-            box-shadow    : 2px 2px #666666;  /* 影の設定 */
-            border        : 2px solid #ffffff;    /* 枠の指定 */
-            cursor        : pointer;     /* カーソル   */
-            text-align    : center;
-            background-color: #ffffff;
-            font-size: 30px;
-        }
-        .cbut:hover{
-            box-shadow    : none;        /* カーソル時の影消去 */
-            font-size     : 30px;        /* 文字サイズ */
-            transform     : scale(1.1);
-        }
     </style>
 </head>
 <body>

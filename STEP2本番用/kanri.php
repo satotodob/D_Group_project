@@ -12,7 +12,7 @@
 
 </head>
 
-<?php 
+<?php
      session_start();
      require_once "db_connect.php";
      $dbconnect = new connect();
@@ -50,11 +50,10 @@
 
 <div class="category">
   <a href="users_manage.php">ユーザー情報管理<br>-User-</a>
-  <a href="inventory.php">在庫補充管理<br>-Inventory-</a>
-  <a href="menu_manage.php">メニュー情報管理<br>-MenuManage-</a>
+  <a href="inventory.php">在庫管理<br>-Inventory-</a>
+  <a href="menu_manage.php">商品管理<br>-MenuManage-</a>
 </div>
 
 </form>
-    
 </body>
 </html>

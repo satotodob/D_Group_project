@@ -1,153 +1,149 @@
 body{
-    position: relative;
-    background-color: #250d00;
+  position: relative;
+  background-color: #250d00;
 }
 header{
-  margin: 10px;
+margin: 10px;
 }
 hr{
-  border-color : #640125;
-  border-radius: 50px;
+border-color : #640125;
+border-radius: 50px;
 }
 .img{
-  padding-right: 88%;
+padding-right: 88%;
 }
 .moji{
-  color       : #ffffff;
-  margin-left : 70%;
+color       : #ffffff;
+margin-left : 70%;
 }
 [name="manager"]{
-  /* border-radius : 80%; */
-  font-size     : 15pt;        /* 文字サイズ */
-  cursor        : pointer;     /* カーソル   */
-  padding       : 10px 10px;   /* 余白       */
-  background    : #a3a3a2;   /* 背景色     */
-  color         : white;     /* 文字色     */
-  line-height   : 1em;         /* 1行の高さ  */
+/* border-radius : 80%; */
+font-size     : 15pt;        /* 文字サイズ */
+cursor        : pointer;     /* カーソル   */
+padding       : 10px 10px;   /* 余白       */
+background    : #a3a3a2;   /* 背景色     */
+color         : white;     /* 文字色     */
+line-height   : 1em;         /* 1行の高さ  */
 }
 
 /* ボタン */
 .box{
-	position : relative;
-	height   : 100px;
+position : relative;
+height   : 100px;
 }
 .main {
-    display       : inline-block;
-    position      : absolute;
-    left          : 500px;
-	  top           : 10px;
-    font-size     : 35pt;        /* 文字サイズ */
-    text-align    : center;      /* 文字位置   */
-    cursor        : pointer;     /* カーソル   */
-    padding       : 70px 40px;   /* 余白       */
-    color         : #ffffff;   /* 文字色     */
-    line-height   : 1em;         /* 1行の高さ  */
-    transition    : .3s;         /* なめらか変化 */
-    box-shadow    : 2px 2px #666666;  /* 影の設定 */
-    border        : 2px solid #ffffff;    /* 枠の指定 */
-    background-image : url(./categories/yakitori.jpg);
-    background-repeat: no-repeat;
-    background-size  : cover;
-  }
-  .main:hover {
-    box-shadow    : none;        /* カーソル時の影消去 */
-    color         : #a3a3a2;   /* 背景色 */
-    font-size     : 35pt;        /* 文字サイズ */
-    transform     : scale(1.1);
-  }
-  .side {
-    display       : inline-block;
-    position      : absolute;
-    left          : 540px;
-	  top           : 260px;
-    font-size     : 35pt;        /* 文字サイズ */
-    text-align    : center;      /* 文字位置   */
-    cursor        : pointer;     /* カーソル   */
-    padding       : 70px 40px;   /* 余白       */
-    background    : #ffffff;     /* 背景色     */
-    color         : #ffffff;     /* 文字色     */
-    line-height   : 1em;         /* 1行の高さ  */
-    transition    : .3s;         /* なめらか変化 */
-    box-shadow    : 2px 2px #666666;  /* 影の設定 */
-    border        : 2px solid #ffffff;    /* 枠の指定 */
-    background-image  : url(./categories/side.jpg);
-    background-repeat : no-repeat;
-    background-size   : cover;
-  }
-  .side:hover {
-    box-shadow    : none;        /* カーソル時の影消去 */
-    color         : #ffffff;   /* 背景色     */
-    font-size     : 35pt;        /* 文字サイズ */
-    transform     : scale(1.1);
-  }
-  .drink {
-    display       : inline-block;
-    position      : absolute;
-    left          : 1027px;
-	  top           : 10px;
-    font-size     : 30pt;        /* 文字サイズ */
-    text-align    : center;      /* 文字位置   */
-    cursor        : pointer;     /* カーソル   */
-    padding       : 202px 100px; /* 余白       */
-    background    : #ffffff;   /* 背景色     */
-    color         : #ffffff;   /* 文字色     */
-    line-height   : 1em;         /* 1行の高さ  */
-    transition    : .3s;         /* なめらか変化 */
-    box-shadow    : 2px 2px #666666;  /* 影の設定 */
-    border        : 2px solid #ffffff;    /* 枠の指定 */
-    background-image: url(./categories/beers.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  .drink:hover {
-    box-shadow    : none;        /* カーソル時の影消去 */
-    color         : #ffffff;     /* 背景色     */
-    font-size     : 30pt;        /* 文字サイズ */
-    transform     : scale(1.1);
-  }
-  h2{
-    color     : #ffffff;
-    margin-top: 450px;
-    text-align: center;
-  }
+  display       : inline-block;
+  position      : absolute;
+  left          : 500px;
+  top           : 10px;
+  font-size     : 35pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 70px 40px;   /* 余白       */
+  color         : #ffffff;   /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 2px 2px #666666;  /* 影の設定 */
+  border        : 2px solid #ffffff;    /* 枠の指定 */
+  background-image : url(./categories/yakitori.jpg);
+  background-repeat: no-repeat;
+  background-size  : cover;
+}
+.main:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  color         : #ffffff;   /* 背景色 */
+  font-size     : 35pt;        /* 文字サイズ */
+  transform     : scale(1.1);
+}
+.side {
+  display       : inline-block;
+  position      : absolute;
+  left          : 540px;
+  top           : 260px;
+  font-size     : 35pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 70px 40px;   /* 余白       */
+  background    : #ffffff;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 2px 2px #666666;  /* 影の設定 */
+  border        : 2px solid #ffffff;    /* 枠の指定 */
+  background-image  : url(./categories/side.jpg);
+  background-repeat : no-repeat;
+  background-size   : cover;
+}
+.side:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  color         : #ffffff;   /* 背景色     */
+  font-size     : 35pt;        /* 文字サイズ */
+  transform     : scale(1.1);
+}
+.drink {
+  display       : inline-block;
+  position      : absolute;
+  left          : 1027px;
+  top           : 10px;
+  font-size     : 30pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 202px 100px; /* 余白       */
+  background    : #ffffff;   /* 背景色     */
+  color         : #ffffff;   /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 2px 2px #666666;  /* 影の設定 */
+  border        : 2px solid #ffffff;    /* 枠の指定 */
+  background-image: url(./categories/beers.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.drink:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  color         : #ffffff;     /* 背景色     */
+  font-size     : 30pt;        /* 文字サイズ */
+  transform     : scale(1.1);
+}
+h2{
+  color     : #ffffff;
+  margin-top: 450px;
+  text-align: center;
+}
+.history{
+  display       : inline-block;
+  font-size     : 13pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 12px 22px;   /* 余白       */
+  background    : #ffffff;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  opacity       : 1;           /* 透明度     */
+  transition    : .3s;         /* なめらか変化 */
+}
+.history:hover{
+  box-shadow    : none;        /* カーソル時の影消去 */
+  opacity       : 0.8;
+}
 
-  .footer{
-
-  }
-  .history{
-    display       : inline-block;
-    font-size     : 13pt;        /* 文字サイズ */
-    text-align    : center;      /* 文字位置   */
-    cursor        : pointer;     /* カーソル   */
-    padding       : 12px 22px;   /* 余白       */
-    background    : #ffffff;     /* 背景色     */
-    color         : #ffffff;     /* 文字色     */
-    line-height   : 1em;         /* 1行の高さ  */
-    opacity       : 1;           /* 透明度     */
-    transition    : .3s;         /* なめらか変化 */
-  }
-  .history:hover{
-    box-shadow    : none;        /* カーソル時の影消去 */
-    opacity       : 0.8;
-  }
-
-  [name="history"]{
-    display       : inline-block;
-    font-size     : 15pt;        /* 文字サイズ */
-    text-align    : center;      /* 文字位置   */
-    cursor        : pointer;     /* カーソル   */
-    padding       : 10px 10px;   /* 余白       */
-    background    : #a3a3a2;    /* 背景色     */
-    color         : white;     /* 文字色     */
-    line-height   : 1em;         /* 1行の高さ  */
-  }
-  [name="goto_pay"]{
-    display       : inline-block;
-    font-size     : 15pt;        /* 文字サイズ */
-    text-align    : center;      /* 文字位置   */
-    cursor        : pointer;     /* カーソル   */
-    padding       : 10px 10px;   /* 余白       */
-    background    : #a3a3a2;    /* 背景色     */
-    color         : white;     /* 文字色     */
-    line-height   : 1em;         /* 1行の高さ  */
-  }
+[name="history"]{
+  display       : inline-block;
+  font-size     : 15pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 10px 10px;   /* 余白       */
+  background    : #a3a3a2;    /* 背景色     */
+  color         : white;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+}
+[name="goto_pay"]{
+  display       : inline-block;
+  font-size     : 15pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 10px 10px;   /* 余白       */
+  background    : #a3a3a2;    /* 背景色     */
+  color         : white;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+}

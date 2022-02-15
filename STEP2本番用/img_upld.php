@@ -1,20 +1,29 @@
 <!DOCTYPE html>
-<html lang="ja" >
+<html lang="ja">
 <head>
   <meta charset="UTF-8">
   <title>メニュー画像アップロード</title>
   <style>
       body{
+          position: relative;
           text-align:center;
-          background-color :#c0c0c0;
+          font-size: 25px;
       }
       div{
           margin:15px 0px;
       }
+      .hr{
+          border-color: 3px solid #fff0f5;
+      }
+      .border{
+        border-width: 0 0 8px;
+        border-style: solid;
+        border-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2 1"><circle fill="hsla(0, 0%, 65%, 1.0)" cx="1" cy="0.5" r="0.5"/></svg>') 0 0 100% repeat;
+        width: 246px;
+      }
       .cate_choice input[type="radio"]{
             display:none;
       }
-
       .cate_choice label{
             display:inline-block;
             color:#fff;
@@ -31,33 +40,35 @@
 
 </head>
 
-<?php            
+<?php
         session_start();
         require_once "db_connect.php";
         $dbconnect = new connect();
-   
+
         if(!isset($_SESSION['manager'])){//管理者確認未チェック時
            //index.phpに飛ばします
             echo "<script>window.location.href = 'manager_login.php';</script>";
            exit;
         }
-        
 ?>
 
 
 <body>
     <form method="POST" action="" enctype="multipart/form-data">
-        
+        <hr class="hr">
         <h2>商品画像登録</h2>
+        <hr class="hr">
 
         <div>
             登録する画像を選択してください<br>
             <input type="file" name="imgf_data">
         </div>
+        <hr class="border">
         <div>
             登録するメニュー名を入力してください<br>
             <input type ="text" name="menuname" value="" required>
         </div>
+        <hr class="border">
         <div class="cate_choice">
             登録する画像のカテゴリーを選択してください<br>
             <input id="kusi" type="radio" name="category" value="main" checked="checked">
@@ -68,11 +79,14 @@
 
             <input id="side" type="radio" name="category" value="side">
             <label for="side">サイドメニュー</label>
-
         </div>
+
+        <hr class="border">
+
         <div class="">
             <input type ="submit" name="go_imgup" value="画像をアップロードする">
         </div>
+        <hr class="border">
 
         <div>
             <?php
@@ -82,8 +96,8 @@
 
                         $menu_name = $_POST['menuname']; //textboxで入力されたメニュー名
 
-                        $chec_jpg = substr($_FILES['imgf_data']['name'],-4);//拡張子の取り出し                        
-                        
+                        $chec_jpg = substr($_FILES['imgf_data']['name'],-4);//拡張子の取り出し
+
                         if($chec_jpg != ".jpg"){//拡張子で分岐
                             print('.jpg拡張子の画像ファイルのみアップロードできます。');
 
@@ -95,7 +109,7 @@
 
                             if($name_count==0){//DBのメニューtableに登録なし
                             print('メニューに登録されている画像ファイルのみアップロードできます。<br>メニュー登録を確認してください。<br>');
-                        
+
                             }else{//登録のあるメニュー名での画像ファイルだった場合
 
                                 //登録していようとしている画像は削除済み商品ではないかチェック
@@ -127,10 +141,10 @@
                                                 //画像登録されていない時だけ登録する
                                                 $save_place = 'mainimg/'. $m_id_ck.'.jpg';//カテゴリ別フォルダ　保存先確保
                                                 move_uploaded_file($_FILES['imgf_data']['tmp_name'], $save_place);
-                                        
+
                                                 //全メニューフォルダへもコピー保存
                                                 copy('mainimg/'.$m_id_ck.'.jpg', 'menuimg/'.$m_id_ck.'.jpg');
-                                            
+
                                                 print($menu_name.'のメニュー画像登録が完了しました！<br>');
                                             }
                                         }else{
@@ -148,11 +162,10 @@
                                                 //画像登録されていない時だけ登録する
                                                 $save_place = 'drinkimg/'. $m_id_ck.'.jpg';//カテゴリ別フォルダ　保存先確保
                                                 move_uploaded_file($_FILES['imgf_data']['tmp_name'], $save_place);
-                                        
+
                                                 //全メニューフォルダへもコピー保存
                                                 copy('drinkimg/'.$m_id_ck.'.jpg', 'menuimg/'.$m_id_ck.'.jpg');
-                                            
-                                                print($menu_name.'のメニュー画像登録が完了しました！<br>');
+                                                                                            print($menu_name.'のメニュー画像登録が完了しました！<br>');
                                             }
                                         }else{
                                             print('選択したカテゴリーが異なるようです。'.$menu_name.'の登録カテゴリーを確認してください。');
@@ -169,10 +182,10 @@
                                                 //画像登録されていない時だけ登録する
                                                 $save_place = 'sideimg/'. $m_id_ck.'.jpg';//カテゴリ別フォルダ　保存先確保
                                                 move_uploaded_file($_FILES['imgf_data']['tmp_name'], $save_place);
-                                        
+
                                                 //全メニューフォルダへもコピー保存
                                                 copy('sideimg/'.$m_id_ck.'.jpg', 'menuimg/'.$m_id_ck.'.jpg');
-                                            
+
                                                 print($menu_name.'のメニュー画像登録が完了しました！<br>');
                                             }
                                         }else{
@@ -182,7 +195,6 @@
                                 }
                             }
                         }
-                        
 
                     }else{
                         print('画像のアップロードができていません。<br>');

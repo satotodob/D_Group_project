@@ -13,7 +13,7 @@
         　スクロールはtableをdivで囲む
         */
         .tbody{
-            height: 340px; 
+            height: 340px;
             display: block;
             overflow-y: scroll;
         }
@@ -30,7 +30,7 @@
         table{
             margin: auto;
         }
-    </style> 
+    </style>
 </head>
 <body>
 
@@ -42,11 +42,11 @@
     unset($_SESSION['manager']);//管理者認証をはずす
 
     $table_no = $_SESSION['table_no'];//注文卓番号
-    
+
     if(!isset($_SESSION['user_name'])){//user_nameが届かない場合(非ログイン時)
         //index.phpに飛ばします
          echo "<script>window.location.href = 'index.php';</script>";
-        exit;      
+        exit;
     }
 ?>
 
@@ -70,9 +70,9 @@ print "<thead>";
 print "</thead>";
 
 
-print "<tbody class='tbody'>";       
+print "<tbody class='tbody'>";
         print('<tr>');
-    // 変数を0で定義    
+    // 変数を0で定義
         $order_all = 0;
         $money_all = 0;
     // 確定フラグがtrueで会計フラグがfalseの場合
@@ -81,13 +81,12 @@ print "<tbody class='tbody'>";
 
         //ここで使うのは[メニューid]と[数量]  ↓変数に入れる
         $mnu_id = $result['menu_id']; //メニューidを変数mnu_idに入れる
-        $suuryou = $result['quantity']; //数量を変数suuryouに入れる 
+        $suuryou = $result['quantity']; //数量を変数suuryouに入れる
         $order_all += $suuryou ;
 
     $menu_sql = $dbconnect->db-> query('select * from menu_table where menu_id='.$mnu_id);
     while($result = $menu_sql->fetch()){
         //レコードで取り出した中からカラムを指定して取り出す
-        
         print("<td class='w'>".$result['menu_name']."</td>");
         print("<td class='w'>".$suuryou."</td>");
 
@@ -98,11 +97,11 @@ print "<tbody class='tbody'>";
         /* 最初のwhile文で取り出した「数量(suuryou)」と
         ここのwhile文で取り出した「単価(tanka)」をかけて
         合計金額を変数　$goukei に入れる　*/
-        
+
         $goukei = $suuryou*$tanka;
         $money_all += $goukei;
         print("<td class='w'>".$goukei."円"."</td>"."</tr>");
-        }; 
+        };
     };
 print "</tbody>";
 
@@ -115,7 +114,7 @@ print "<table border='1'>";
 
 
     print("<tr>"."<th>"."合計注文数"."</th>");
-    print("<td>".$order_all."点"."</td>"."</tr>"); 
+    print("<td>".$order_all."点"."</td>"."</tr>");
 
     print("<tr>"."<th>"."合計金額"."</th>");
     print("<td>".$money_all."円"."</td>"."</tr>");
@@ -128,12 +127,12 @@ print "</div>";
 
 print "<footer>";
 print "<div class='fotter_menu'>";
-  print ("<a href='category.php'>"."メニューに戻る"."</a>");
-  
-  
+print ("<a href='category.php'>"."メニューに戻る"."</a>");
+
    if($money_all != 0){ //会計が0円の時は以下の表示をさせない
-       
-       print('<input type="button" name="goto_pay" onclick="location.href=\'pay.php\'" value="お会計に進む">');
+
+    print('<input type="button" name="goto_pay" onclick="location.href=\'pay.php\'" value="お会計に進む">');
+
    }
 
 } else {
@@ -146,6 +145,5 @@ print "<div class='fotter_menu'>";
 
 ?>
 </footer>
-    
 </body>
 </html>

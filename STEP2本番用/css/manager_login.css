@@ -51,7 +51,7 @@ body {
   border-bottom: 1px solid #9596A2;
 }
 .login .form .form-field label {
-  width: 10px;
+  width: 165px;
   padding: 0 15px 0 0;
   color: #9596A2;
 }
@@ -198,3 +198,4 @@ body {
     transform: perspective(120px) rotateY(180deg) rotateX(180deg);
   }
 }
+

@@ -5,12 +5,14 @@
   <title>確定</title>
   <style>
       body{
-        background-color:#fffff9;
+        background-color:#250d00;
       }
 
       h2{
           text-align:center;
           margin-top:10%;
+          color:white;
+          font-family:serif;
       }
 
       header{

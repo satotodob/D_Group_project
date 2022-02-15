@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>管理者ログイン</title>
-  <link rel="stylesheet" href="">
+  <link rel="stylesheet" href="css/manager_login.css">
 
 </head>
 

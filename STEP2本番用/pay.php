@@ -2,13 +2,12 @@
 <html lang="ja" >
 <head>
   <meta charset="UTF-8">
-  <title>お会計画面ダミー</title>
+  <title>お会計画面</title>
+  <link rel="stylesheet" href="css/pay.css">
 
 </head>
 <style>
-  body{
-    text-align:center;
-  }
+
 </style>
 
 <?php
@@ -28,7 +27,7 @@
 ?>
 
 <body>
-    <h2>お会計ダミーページ</h2>
+    <h2>お会計</h2>
     <?php
       //未確定注文がないか件数チェック
       $stmt = $dbconnect->db->query('select count(*) as cnt from order_table where terminal_id = '.$table_no.' and decition_flag = 0');

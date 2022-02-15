@@ -3,10 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>履歴画面</title>
-    <link rel="stylesheet" href="css/rireki.css">
     <style>
-           
-    </style>
+        h1,.c{
+            /*注文がない場合のCSS　中央 */
+            text-align: center;
+        }
+        /*項目を動かさないためにtableをわけたのでカラムの幅を固定にして項目とデータの幅をあわせる
+        　項目を動かしたい場合は、tebleを一つにする
+        　スクロールはtableをdivで囲む
+        */
+        .tbody{
+            height: 340px; 
+            display: block;
+            overflow-y: scroll;
+        }
+        thead{
+            width: 100%;
+            display: block;
+            }
+        th,td {
+            border: solid 1px;          /* 枠線指定 */
+            font-size: 25px;
+            height: 50px;
+            width: 310px;
+        }
+        table{
+            margin: auto;
+        }
+    </style> 
 </head>
 <body>
 
@@ -33,8 +57,6 @@
 <h1>注文履歴</h1>
 <?php
 $order_sql = $dbconnect->db-> query('select * from order_table where decition_flag=1 && pay_flag =0&& terminal_id = '.$table_no);
-// $kakutei_count = $order_sql ->fetchcolumn();
-// $kakutei_count = $order_sql ->fetch(PDO::FETCH_ASSOC);
 $kakutei_count = $order_sql ->fetch();
 
 
@@ -42,12 +64,13 @@ $kakutei_count = $order_sql ->fetch();
 if($kakutei_count != 0){
 print "<table border='1'>";
 
+//tableをわけないでheadとbodyでわける方法
+print "<thead>";
     print('<tr><th>商品</th><th>数量</th><th>金額</th></tr>');
+print "</thead>";
 
-print "</table>";
 
-print "<div class='over'>";
-print "<table border='1'>";       
+print "<tbody class='tbody'>";       
         print('<tr>');
     // 変数を0で定義    
         $order_all = 0;
@@ -55,9 +78,6 @@ print "<table border='1'>";
     // 確定フラグがtrueで会計フラグがfalseの場合
     $order_sql = $dbconnect->db-> query('select * from order_table where decition_flag=1 && pay_flag =0 && terminal_id ='. $table_no);
      while($result = $order_sql->fetch()){
-        //レコードで取り出した中からカラムを指定して取り出せる
-        // print("オーダーidは「".$result['order_id']."」");
-        // print("メニューidは「".$result['menu_id']."」");
 
         //ここで使うのは[メニューid]と[数量]  ↓変数に入れる
         $mnu_id = $result['menu_id']; //メニューidを変数mnu_idに入れる
@@ -68,8 +88,8 @@ print "<table border='1'>";
     while($result = $menu_sql->fetch()){
         //レコードで取り出した中からカラムを指定して取り出す
         
-        print("<td>".$result['menu_name']."</td>");
-        print("<td>".$suuryou."</td>");
+        print("<td class='w'>".$result['menu_name']."</td>");
+        print("<td class='w'>".$suuryou."</td>");
 
         //必要な[メニュー名]・[単価]を変数に入れる
         $mnu_name = $result['menu_name']; //メニュー名を変数mnu_nameに入れる
@@ -81,16 +101,16 @@ print "<table border='1'>";
         
         $goukei = $suuryou*$tanka;
         $money_all += $goukei;
-        print("<td>".$goukei."円"."</td>"."</tr>");
+        print("<td class='w'>".$goukei."円"."</td>"."</tr>");
         }; 
     };
+print "</tbody>";
 
- 
 
 print "</table>";
-print "</div>";
 
-print "<div class='sum_table'>";
+
+print "<div>";
 print "<table border='1'>";
 
 
@@ -118,9 +138,9 @@ print "<div class='fotter_menu'>";
 
 } else {
 
-    print "商品が注文されていません";
+    print "<div class='c'>"."商品が注文されていません"."</div>";
 
-    print('<input type="button" onclick="location.href=\'category.php\'" value="カテゴリー画面へ">');
+    print('<div class="c"><input type="button" onclick="location.href=\'category.php\'" value="カテゴリー画面へ"></div>');
 
 }
 

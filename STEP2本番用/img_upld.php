@@ -8,6 +8,7 @@
           position: relative;
           text-align:center;
           font-size: 25px;
+          background-color :#e3dede;
       }
       div{
           margin:15px 0px;
@@ -36,6 +37,7 @@
       .cate_choice input[type="radio"]:checked + label{
             background-color:#f35886;
       }
+      .info{ color: red;}
   </style>
 
 </head>
@@ -88,7 +90,7 @@
         </div>
         <hr class="border">
 
-        <div>
+        <div class="info">
             <?php
                 if(isset($_POST['go_imgup'])){//画像アップボタンを押したら
 
